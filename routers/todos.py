@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, HTTPException, Path
+from fastapi import APIRouter, Depends, HTTPException, Path, Request
 from models import Todos
 from database import SessionLocal
 from typing import Annotated
@@ -10,7 +10,9 @@ from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 
 
-router = APIRouter()
+router = APIRouter(prefix='/todos', tags=['todos'])
+
+templates = Jinja2Templates(directory='templates')
 
 
 def get_db():
