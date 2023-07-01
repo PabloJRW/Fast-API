@@ -1,5 +1,8 @@
 from fastapi import APIRouter, Depends, HTTPException, Path, Request
+<<<<<<< HEAD
 import models
+=======
+>>>>>>> fullstack
 from models import Todos
 from database import SessionLocal, engine
 from typing import Annotated
@@ -13,8 +16,11 @@ from fastapi.templating import Jinja2Templates
 
 router = APIRouter(prefix='/todos', tags=['todos'])
 
+<<<<<<< HEAD
 models.Base.metadata.create_all(bind=engine)
 
+=======
+>>>>>>> fullstack
 templates = Jinja2Templates(directory='templates')
 
 
