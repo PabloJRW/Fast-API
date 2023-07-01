@@ -25,6 +25,11 @@ db_dependency = Annotated[Session, Depends(get_db)]
 user_dependency = Annotated[dict, Depends(get_current_user)]
 
 
+@router.get("/test")
+async def test(request: Request):
+    return templates.TemplateResponse("home.html", {'request': request})
+
+
 @router.get("/", status_code=status.HTTP_200_OK)
 async def read_all(user: user_dependency, db: db_dependency):
     if user is None:
